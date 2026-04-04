@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tarek Badih — Data Scientist & ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0C1F35;
+    --blue:   #1B5EA8;
+    --accent: #2E9CCA;
+    --teal:   #00C2A0;
+    --white:  #FFFFFF;
+    --off:    #F4F8FC;
+    --gray:   #6B7C93;
+    --light:  #E4F0FB;
+    --text:   #1A2940;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ──────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    backdrop-filter: blur(16px);
+    background: rgba(12,31,53,0.85);
+    border-bottom: 1px solid rgba(46,156,202,0.15);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    color: var(--accent); letter-spacing: 0.05em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ─────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 70% 50%, rgba(27,94,168,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(46,156,202,0.15) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+    background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(46,156,202,0.12); border: 1px solid rgba(46,156,202,0.3);
+    border-radius: 100px; padding: 0.4rem 1rem;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    color: var(--accent); margin-bottom: 1.8rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800; line-height: 1.0;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1.1rem; font-weight: 300; line-height: 1.7;
+    color: rgba(255,255,255,0.7); max-width: 560px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-weight: 500; font-size: 0.9rem; text-decoration: none;
+    transition: all 0.2s; cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--navy);
+  }
+  .btn-primary:hover { background: #3db5e8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,156,202,0.35); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+    color: var(--accent);
+  }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; letter-spacing: 0.04em; }
+
+  /* ── SECTIONS SHARED ──────────────────────── */
+  section { padding: 7rem 4rem; }
+  section:nth-child(even) { background: var(--off); color: var(--text); }
+  section:nth-child(even) h2 { color: var(--navy); }
+  section:nth-child(even) p { color: var(--gray); }
+
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700; margin-bottom: 1rem;
+  }
+  .section-intro { font-size: 1rem; line-height: 1.7; max-width: 520px; margin-bottom: 3.5rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── ABOUT ────────────────────────────────── */
+  #about { background: var(--navy); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-visual {
+    position: relative; aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-ring {
+    width: 280px; height: 280px; border-radius: 50%;
+    border: 2px solid rgba(46,156,202,0.3);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    animation: rotate 20s linear infinite;
+  }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+  .about-ring::before {
+    content: 'TB';
+    font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 800;
+    color: var(--accent);
+    animation: rotate 20s linear infinite reverse;
+  }
+  .ring-dot {
+    position: absolute; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--teal); top: -6px; left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--teal);
+  }
+  .about-text h2 { color: var(--white); margin-bottom: 1.2rem; }
+  .about-text p { color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+
+  /* ── SKILLS ───────────────────────────────── */
+  #skills { background: var(--off); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem;
+  }
+  .skill-card {
+    background: var(--white); border-radius: 12px; padding: 1.5rem;
+    border: 1px solid rgba(27,94,168,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,94,168,0.12); }
+  .skill-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .skill-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .skill-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+
+  /* ── EXPERIENCE ───────────────────────────── */
+  #experience { background: var(--navy); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--accent), rgba(46,156,202,0.1));
+  }
+  .tl-item { padding-left: 2.5rem; padding-bottom: 3rem; position: relative; }
+  .tl-dot {
+    position: absolute; left: -7px; top: 4px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--navy);
+    box-shadow: 0 0 10px rgba(46,156,202,0.5);
+  }
+  .tl-date { font-size: 0.78rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .tl-role { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+  .tl-company { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 0.9rem; }
+  .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .tl-bullets li {
+    font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6;
+    padding-left: 1rem; position: relative;
+  }
+  .tl-bullets li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--teal); font-size: 0.75rem;
+  }
+  .tag {
+    display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px;
+    background: rgba(46,156,202,0.12); border: 1px solid rgba(46,156,202,0.25);
+    font-size: 0.72rem; color: var(--accent); margin: 0.15rem;
+  }
+  .tags { margin-top: 0.8rem; }
+
+  /* ── PROJECTS ─────────────────────────────── */
+  #projects { background: var(--off); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .proj-card {
+    background: var(--white); border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(27,94,168,0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .proj-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(27,94,168,0.15); }
+  .proj-top {
+    height: 100px; display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+  }
+  .proj-top.blue { background: linear-gradient(135deg, #1B5EA8, #2E9CCA); }
+  .proj-top.teal { background: linear-gradient(135deg, #00897B, #00C2A0); }
+  .proj-top.purple { background: linear-gradient(135deg, #5C35A8, #9C6ACA); }
+  .proj-top.orange { background: linear-gradient(135deg, #C85000, #F07030); }
+  .proj-body { padding: 1.4rem; }
+  .proj-body h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .proj-body p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin-bottom: 0.9rem; }
+  .proj-result {
+    font-size: 0.8rem; font-weight: 600; color: var(--blue);
+    background: var(--light); border-radius: 6px; padding: 0.4rem 0.7rem;
+    display: inline-block;
+  }
+
+  /* ── CONTACT ──────────────────────────────── */
+  #contact {
+    background: var(--navy);
+    text-align: center; display: flex; flex-direction: column; align-items: center;
+  }
+  #contact h2 { color: var(--white); }
+  #contact p { color: rgba(255,255,255,0.6); max-width: 460px; margin-bottom: 2.5rem; }
+  .contact-links { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+
+  /* ── FOOTER ───────────────────────────────── */
+  footer {
+    background: #080F19; text-align: center;
+    padding: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.25);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    .hero-stats { gap: 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">TB</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="Tarek_Badih_Resume.pdf" class="btn btn-primary" style="padding:0.6rem 1.2rem;font-size:0.82rem;">Download Resume</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Available for full-time roles</div>
+    <h1>Tarek<br/><span>Badih</span></h1>
+    <p class="hero-sub">Data scientist and ML engineer who ships real systems — from computer vision classifiers to NLP pipelines — and makes models do things that matter.</p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">22%</div>
+        <div class="stat-label">Engagement Lift</div>
+      </div>
+      <div>
+        <div class="stat-num">40%</div>
+        <div class="stat-label">Review Time Cut</div>
+      </div>
+      <div>
+        <div class="stat-num">92%</div>
+        <div class="stat-label">Model Accuracy</div>
+      </div>
+      <div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">Internships</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-ring">
+        <div class="ring-dot"></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-label">About Me</p>
+      <h2>Building AI that actually ships</h2>
+      <p>I'm a UC Berkeley Data Science grad (Dec 2025) with a focus on applied ML — the kind that lives in production, not just notebooks. I've deployed computer vision systems, NLP pipelines, and recommendation engines that drove measurable outcomes at real organizations.</p>
+      <p>My sweet spot is the intersection of modeling and engineering: I care about how a model is built, but I care just as much about how it gets integrated, monitored, and made useful for people who aren't data scientists.</p>
+      <p>Currently seeking full-time ML Engineer or Data Scientist roles where I can build systems at scale.</p>
+      <div style="margin-top:1.8rem;">
+        <a href="mailto:tbadih2004@berkeley.edu" class="btn btn-primary" style="font-size:0.85rem;">tbadih2004@berkeley.edu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">What I Work With</p>
+  <h2>Skills & Stack</h2>
+  <p class="section-intro" style="color:var(--gray);">Tools and techniques I've used on real projects — not just tutorials.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🧠</div>
+      <h3>Machine Learning</h3>
+      <p>scikit-learn, Random Forests, Gradient Boosting, A/B Testing, Feature Engineering</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">👁️</div>
+      <h3>Computer Vision</h3>
+      <p>Image classification pipelines, TensorFlow, PyTorch, production deployment</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💬</div>
+      <h3>NLP & LLMs</h3>
+      <p>Sentiment analysis, prompt engineering, generative AI integration, Claude API</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <h3>Data Pipelines</h3>
+      <p>Python, NumPy, pandas, SQL, automated ETL, daily delivery cadences</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <h3>Analytics & Viz</h3>
+      <p>Matplotlib, Seaborn, audience segmentation, dynamic pricing, market analysis</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🛠️</div>
+      <h3>Engineering</h3>
+      <p>Python, Java, SQL, C, Git, Jupyter, real-time model integration, API deployment</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Career</p>
+  <h2 style="color:var(--white);">Experience</h2>
+  <p class="section-intro" style="color:rgba(255,255,255,0.55);">Where I've built things and what came out of it.</p>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Apr 2025 – Aug 2025</div>
+      <div class="tl-role">AI & Machine Learning Intern</div>
+      <div class="tl-company">Helping Hands · Berkeley, CA</div>
+      <ul class="tl-bullets">
+        <li>Trained recommendation models that increased user engagement by 22% and improved equitable access to nonprofit resources.</li>
+        <li>Built automated end-to-end data pipelines (ingestion → cleaning → feature engineering → model training) delivering analyst-ready data daily.</li>
+        <li>Deployed a computer vision classifier that cut manual donation image review time by 40%.</li>
+        <li>Integrated NLP sentiment models (Claude API) into live outreach workflows, improving donor response rates in real time.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">TensorFlow</span><span class="tag">Computer Vision</span><span class="tag">NLP</span>
+        <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Claude API</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">May 2024 – Aug 2024</div>
+      <div class="tl-role">Data Science Intern</div>
+      <div class="tl-company">BLCK UNICRN · Los Angeles, CA</div>
+      <ul class="tl-bullets">
+        <li>Built audience segmentation + dynamic pricing model for VR experiences → 12% ticket sales increase.</li>
+        <li>Ran A/B tests on promotional packages that lifted average ticket revenue by 8%.</li>
+        <li>Trained Random Forest and Gradient Boosting models achieving 92% accuracy on user behavior forecasting.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Random Forests</span>
+        <span class="tag">Gradient Boosting</span><span class="tag">A/B Testing</span><span class="tag">Java</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jun 2022 – Jul 2022</div>
+      <div class="tl-role">AI & Data Hackathon Participant</div>
+      <div class="tl-company">MIT Hackathon · Cambridge, MA</div>
+      <ul class="tl-bullets">
+        <li>Built humanitarian tech prototypes using Python and applied AI to automate aid-distribution data analysis for NGOs.</li>
+        <li>Delivered functional prototypes and full data analysis on schedule under competition constraints.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Applied AI</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Work</p>
+  <h2>Projects</h2>
+  <p class="section-intro" style="color:var(--gray);">Side projects and competition work that pushed me further than internships did.</p>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-top blue">🚌</div>
+      <div class="proj-body">
+        <h3>Transit Route Optimization</h3>
+        <p>Implemented slime mold network simulations in Python to optimize Berkeley transit routes. Integrated 3D city models with biological network algorithms to propose sustainable transport strategies.</p>
+        <span class="proj-result">Biodesign Challenge 2024</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top teal">🚁</div>
+      <div class="proj-body">
+        <h3>AI Food Logistics System</h3>
+        <p>Led AI-driven routing and demand prediction for a drone-based food delivery prototype. Used clustering algorithms and shortest-path heuristics with a built-in NLP assistant for stakeholder insights.</p>
+        <span class="proj-result">🏆 3rd Place — ENJAZ Tech Competition</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top purple">💬</div>
+      <div class="proj-body">
+        <h3>Donor Sentiment Pipeline</h3>
+        <p>End-to-end NLP system integrating Claude API to analyze donor messages at scale, feeding a real-time outreach decision engine for a nonprofit platform.</p>
+        <span class="proj-result">Production — Helping Hands</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top orange">👁️</div>
+      <div class="proj-body">
+        <h3>Donation Image Classifier</h3>
+        <p>Computer vision pipeline deployed in a live nonprofit intake workflow. Reduced manual image review time by 40% through preprocessing optimization and batched inference.</p>
+        <span class="proj-result">40% time reduction in production</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Let's Talk</p>
+  <h2>Get In Touch</h2>
+  <p>Open to full-time ML Engineer and Data Scientist roles. If you're building something interesting, I'd love to hear about it.</p>
+  <div class="contact-links">
+    <a href="mailto:tbadih2004@berkeley.edu" class="btn btn-primary">Email Me</a>
+    <a href="tel:5105704578" class="btn btn-outline">📞 (510) 570-4578</a>
+    <a href="https://www.linkedin.com/in/tarek-b-b39115257/" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <a href="Tarek_Badih_Resume.pdf" class="btn btn-outline">Download Resume</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Tarek Badih · (510) 570-4578 · tbadih2004@berkeley.edu
+</footer>
+
+</body>
+</html>
