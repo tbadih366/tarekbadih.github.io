@@ -1,0 +1,47 @@
+# Hi, I'm Tarek Badih 👋
+
+**Data Scientist & ML Engineer | UC Berkeley '25**
+
+I build production-grade AI systems that turn complex datasets into measurable business impact. My experience ranges from developing recommendation engines for nonprofits to optimizing urban transit using biologically inspired algorithms.
+
+[🌐 Portfolio Website](https://tbadih366.github.io/tarekbadih.github.io/) | [👔 LinkedIn](https://www.linkedin.com/in/tarek-badih/)
+
+---
+
+### 🚀 Technical Highlights
+* **Predictive Modeling:** Achieved **92% accuracy** in user behavior forecasting and audience segmentation.
+* **Automation:** Built end-to-end pipelines that reduced manual data review time by **40%**.
+* **Growth:** Deployed recommendation models resulting in a **22% lift** in user engagement.
+* **Competition:** 3rd Place at ENJAZ Tech (AI Logistics) and MIT Hackathon participant.
+
+### 🛠️ Toolbelt
+* **Languages:** Python (Expert), SQL, Java, C, JavaScript.
+* **AI/ML:** PyTorch, TensorFlow, Scikit-learn, Computer Vision, NLP, HuggingFace.
+* **Data:** Pandas, NumPy, Matplotlib, Feature Engineering, A/B Testing.
+
+---
+
+### 📂 Featured Projects
+
+#### [AI-Powered Food Logistics](https://github.com/yourusername/project-link)
+* Developed a demand prediction system using clustering algorithms and shortest-path heuristics.
+* Integrated an NLP assistant using prompt engineering to automate documentation workflows.
+
+#### [Biodesign Challenge: Slime Mold Transit Optimization](https://github.com/yourusername/project-link)
+* Simulated biologically inspired networks in Python to optimize Berkeley’s transit infrastructure.
+* Combined 3D city modeling with graph optimization techniques.
+
+#### [Recommendation Engine @ Helping Hands](https://github.com/yourusername/project-link)
+* Architected an automated pipeline for donation categorization and user resource matching.
+
+---
+
+### 🎓 Education
+* **University of California, Berkeley** | B.A. Data Science (Dec 2025)
+* **Relevant Coursework:** Machine Learning, Data Structures & Algorithms, Linear Algebra, Probability.
+
+---
+
+### 📫 Let's Connect
+* **Email:** tbadih2004@berkeley.edu
+* **Currently Seeking:** New Grad roles in ML Engineering, Data Science, and AI Research (Starting Winter 2025/Spring 2026).
