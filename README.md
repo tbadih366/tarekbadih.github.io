@@ -4,7 +4,7 @@
 
 I build production-grade AI systems that turn complex datasets into measurable business impact. My experience ranges from developing recommendation engines for nonprofits to optimizing urban transit using biologically inspired algorithms.
 
-[🌐 Portfolio Website](https://tbadih366.github.io/tarekbadih.github.io/) | [👔 LinkedIn](https://www.linkedin.com/in/tarek-badih/)
+[🌐 Portfolio Website](https://tbadih366.github.io/tarekbadih.github.io/) | [👔 LinkedIn](https://www.linkedin.com/in/tarek-b-b39115257/)
 
 ---
 
@@ -23,15 +23,15 @@ I build production-grade AI systems that turn complex datasets into measurable b
 
 ### 📂 Featured Projects
 
-#### [AI-Powered Food Logistics](https://github.com/yourusername/project-link)
+#### [AI-Powered Food Logistics]
 * Developed a demand prediction system using clustering algorithms and shortest-path heuristics.
 * Integrated an NLP assistant using prompt engineering to automate documentation workflows.
 
-#### [Biodesign Challenge: Slime Mold Transit Optimization](https://github.com/yourusername/project-link)
+#### [Biodesign Challenge: Slime Mold Transit Optimization](https://www.biodesignchallenge.org/uc-berkeley-2024)
 * Simulated biologically inspired networks in Python to optimize Berkeley’s transit infrastructure.
 * Combined 3D city modeling with graph optimization techniques.
 
-#### [Recommendation Engine @ Helping Hands](https://github.com/yourusername/project-link)
+#### [Recommendation Engine @ Helping Hands]
 * Architected an automated pipeline for donation categorization and user resource matching.
 
 ---
