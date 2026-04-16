@@ -1,5 +1,5 @@
 # Hi, I'm Tarek Badih 👋
-**Data Scientist & ML Engineer & Founder | UC Berkeley '25**
+**Data Scientist & ML Engineer | UC Berkeley '25**
 
 I build production-grade AI systems that turn complex datasets into measurable business impact. My experience ranges from developing recommendation engines for nonprofits to optimizing urban transit using biologically inspired algorithms — and shipping SignalForge, a live resume intelligence platform.
 
